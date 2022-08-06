@@ -1,0 +1,30 @@
+version: "3.2"
+services:
+  php-fpm:
+    image: betoscopio/php74alpine-d8:1.0-sqlc
+    #build:
+    #  context: ./images/php81alpine-D9
+    #  dockerfile: Dockerfile
+    #Requires access to the code too
+    restart: unless-stopped
+    volumes:
+    #  - ./src/web:/var/www/
+      - ./src/web:/var/www/
+  nginx:
+    image: nginx:stable
+    labels:
+      description: Nginx Backend Webserver
+      name: nginx backend
+    # the name of the container,it will compose a name based on directory of the project when is not set
+    # container_name: nginx-webserver 
+    restart: unless-stopped
+    volumes:
+      - ./src/web:/var/www/
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf/sites/:/etc/nginx/sites-available
+      - ./conf/conf.d/:/etc/nginx/conf.d
+    depends_on:
+      - php-fpm
+    ports:
+      - "8081:80"
+
