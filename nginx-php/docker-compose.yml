@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   php-fpm:
-    image: betoscopio/php74alpine-d8:1.0-sqlc
+    image: betoscopio/php81alpine-d9:1.0-sqlc
     #build:
     #  context: ./images/php81alpine-D9
     #  dockerfile: Dockerfile
