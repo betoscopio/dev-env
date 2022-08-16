@@ -2,6 +2,7 @@ version: "3.2"
 services:
   php-fpm:
     image: betoscopio/php81alpine-d9:1.0-sqlc
+    # Used to build a local Dockerfile
     #build:
     #  context: ./images/php81alpine-D9
     #  dockerfile: Dockerfile
