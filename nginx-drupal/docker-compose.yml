@@ -2,15 +2,15 @@ version: "3.2"
 services:
 #based on https://x-team.com/blog/docker-compose-php-environment-from-scratch/, http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
   php-fpm:
-    image: betoscopio/php74alpine-d7:1.0-sqlc
+    image: betoscopio/php81alpine-d9:1.0-sqlc
     #build:
-    #  context: ./images/php74alpine-D7
+    #  context: ./images/*
     #  dockerfile: Dockerfile
     #Requires access to the code too
     restart: unless-stopped
     volumes:
     #  - ./src/web:/var/www/
-      - ./src/drupal-7.81:/var/www/
+      - ./src/drupal:/var/www/
   database:
     # more info:
     # https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/docker-mysql-more-topics.html
