@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
     volumes:
     #  - ./src/web:/var/www/
-      - ./src/drupal-7.81:/var/www/
+      - ./src/drupal:/var/www/
   database:
     # more info:
     # https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/docker-mysql-more-topics.html
